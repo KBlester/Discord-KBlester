@@ -1,0 +1,13 @@
+
+command /discord [<text>]:
+	trigger:
+		if arg 1 is not set:
+			open chest with 3 rows named "&8Discord" to player
+			wait 0.2 seconds
+			format slot 13 of player with Skull of ("AtHere" parsed as an offline player) named "&bDiscord Heasty" with lore "&f||&aEm nosso discord você pode:||&9* &fReceber as novidades||&9* &fReceber nossas promoções||&7||&eClique para receber o link em seu chat!" to close then run [make player execute command "discord openlink"]
+			stop
+		if arg 1 is "openlink":
+			send ""
+			send json "&eClique " then "&e&lAQUI" open "https://discord.gg/qcWeREJAyD" then "&e para copiar o link do Discord" to player
+			send ""
+			stop
